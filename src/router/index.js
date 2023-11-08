@@ -1,5 +1,6 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
+import ProductPage from '@/views/Product.vue'; // Replace 'About' with your actual component path
 
 const routes = [
   {
@@ -9,14 +10,17 @@ const routes = [
       {
         path: '',
         name: 'Home',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
+        component: () => import('@/views/Home.vue'),
+      },
+      {
+        path: 'produk', // Define the route path for the About page
+        name: 'Produk',
+        component: ProductPage, // Use the imported About component
       },
     ],
   },
-]
+];
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

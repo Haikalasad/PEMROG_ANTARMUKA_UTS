@@ -103,12 +103,12 @@ export default {
 
 <style>
 h2{
-  font-size: 48px;
+  font-size: 40px;
   border-bottom: 2px solid #000;
   margin-bottom: 40px;
 }
 .container {
-  margin-top: 100px;
+  margin-top: 35px;
 }
 
 .addToCart{

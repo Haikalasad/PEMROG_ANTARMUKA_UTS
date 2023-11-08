@@ -3,7 +3,9 @@
     <div class="sentence">
       <h1>Welcome to GameWorld Pro !!!</h1>
       <h5>Your Ultimate Gaming Destination! Elevate Your Experience with Us.</h5>
-      <v-btn class="explore" color="black">Explore now</v-btn>
+      <div class="btn-explore">
+        <router-link to="/produk" class="btn-explore">Explore Now</router-link>
+      </div>  
     </div>
 
     <div class="image">
@@ -19,10 +21,10 @@
   align-items: center; /* Menggeser ke tengah secara vertikal */
   width: 1250px;
 height: 453px;
-  /* Tidak perlu lagi mengatur width atau margin: 0 auto; */
-  line-height: 100px;
+  
   
 }
+
 
 .sentence {
   width: 50%;
@@ -31,20 +33,22 @@ height: 453px;
   flex-direction: column;
   justify-content: center;
   margin-right: 10px;
-  line-height: 2;
+  padding: 30px;
+  text-align: left;
   /* Mengatur teks di tengah secara horizontal */
 }
-
-.explore {
-  background: #151515;
-  margin-top: 20px;
+.btn-explore{
+  background: #000;
+  text-decoration: none;
+  color: white;
+  text-align: center;
   width: 200px;
-  height: 200px;
-  transition: background-color 0.3s ease;
-  text-align: center; /* Mengatur teks di tengah tombol */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  
+  
+}
+.btn-explore :hover{
+  color: gray;
+  
   
 }
 
