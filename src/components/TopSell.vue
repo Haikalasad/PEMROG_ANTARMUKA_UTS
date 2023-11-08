@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <v-card-text>
-            <h2>Top Selling</h2>
+            <h2>Top Sell</h2>
         </v-card-text>
         <v-app>
             <v-container>
