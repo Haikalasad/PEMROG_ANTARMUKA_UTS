@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <v-card-text>
-      <h2>Our Products</h2>
+      <h2>Joystick Products</h2>
     </v-card-text>
     <v-app>
       <v-container>
@@ -34,12 +34,10 @@
 
 
 <script>
-import Mouse1 from "@/assets/Mouse1.jpg";
-import Mouse2 from "@/assets/Mouse2.jpg";
-import Keyboard1 from "@/assets/Keyboard2.jpg";
-import Headphone1 from "@/assets/headphone3.jpg";
-import Headphone2 from "@/assets/headphone1.jpg";
-import Joystick1 from "@/assets/joystik3.jpg";
+import Joystick1 from "@/assets/joystik1.jpg";
+import Joystick2 from "@/assets/joystik2.jpg";
+import Joystick3 from "@/assets/joystik3.jpg";
+
 
 export default {
   data() {
@@ -47,52 +45,28 @@ export default {
       products: [
         {
           id: 1,
-          nama: "Logitech G203 ",
+          nama: "Razer Wolverine",
           harga: 300000,
           stok: 30,
-          foto: Mouse1,
+          foto: Joystick1,
           terjual: 12
         },
         {
           id: 2,
-          nama: "Razor DeathHadder",
+          nama: "Logitech 710",
           harga: 250000,
           stok: 40,
-          foto: Mouse2,
+          foto: Joystick2,
           terjual: 20
         },
         {
           id: 3,
-          nama: "Keyboard 75%",
+          nama: "Gullkit Kingking 2 Pro",
           harga: 50000,
           stok: 50,
-          foto: Keyboard1,
+          foto: Joystick3,
           terjual: 50
         },
-        {
-          id: 4,
-          nama: "Steel Series Artic 9",
-          harga: 500000,
-          stok: 20,
-          foto: Headphone1,
-          terjual: 30
-        },
-        {
-          id: 5,
-          nama: "Logitech G993s",
-          harga: 500000,
-          stok: 20,
-          foto: Headphone2,
-          terjual: 30
-        },
-        {
-          id: 6,
-          nama: "Gullkit Kingkong 2 Pro",
-          harga: 450000,
-          stok: 20,
-          foto: Joystick1,
-          terjual: 30
-        }
         // Anda dapat menambahkan produk lainnya di sini
       ],
     };

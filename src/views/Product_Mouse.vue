@@ -7,7 +7,7 @@
           <p>Category :</p>
           <ul>
             <ul>
-              <li><router-link to="/produk/mouse">Mouse</router-link></li>
+              <li><router-link to="">Mouse</router-link></li>
               <li><router-link to="/produk/keyboard">Keyboard</router-link></li>
               <li><router-link to="/produk/headphone">Headphone</router-link></li>
               <li><router-link to="/produk/joystick">Joystick</router-link></li>
@@ -15,7 +15,7 @@
 
           </ul>
         </div>
-        <produk />
+        <produk_mouse />
       </v-container>
       <footerSection />
     </v-main>
@@ -27,7 +27,7 @@
 <script setup>
 import navbar from "@/components/navbar.vue"
 import footerSection from "@/components/footer.vue"
-import produk from "@/components/OurProducts.vue"
+import produk_mouse from "@/components/OurMouse.vue"
 
 </script>
 <style>

@@ -37,15 +37,17 @@ height: 453px;
   text-align: left;
   /* Mengatur teks di tengah secara horizontal */
 }
-.btn-explore{
+.btn-explore {
   background: #000;
   text-decoration: none;
   color: white;
   text-align: center;
-  width: 200px;
-  
-  
+  width: 250px; /* Misalnya, lebar 250px */
+  padding: 4px; /* Misalnya, padding 15px atas/bawah dan 20px kiri/kanan */
+  font-size: 24px; /* Misalnya, ukuran font 24px */
+  margin-top: 25px;
 }
+
 .btn-explore :hover{
   color: gray;
   
