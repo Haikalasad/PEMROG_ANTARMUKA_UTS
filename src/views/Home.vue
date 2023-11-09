@@ -24,6 +24,5 @@ import herosection from "@/components/Hero-section.vue"
 import footerSection from "@/components/footer.vue"
 import TopSell from "@/components/TopSell.vue"
 import produk from "@/components/OurProducts.vue"
-import TopSell from "@/components/TopSell.vue"
 
 </script>
