@@ -5,6 +5,7 @@ import MousePage from '@/views/Product_Mouse.vue';
 import KeyboardPage from '@/views/Product_Keyboard.vue';
 import HeadphonePage from '@/views/Product_Headphone.vue';
 import JoystickPage from '@/views/Product_Joystick.vue';
+import home from '@/views/Home.vue'
 
 const routes = [
   {
@@ -13,8 +14,13 @@ const routes = [
     children: [
       {
         path: '',
+        name: 'SignUp',
+        component: () => import('@/views/SignUp.vue'),
+      },
+      {
+        path: 'home', // Define the route path for the About page
         name: 'Home',
-        component: () => import('@/views/Home.vue'),
+        component: home, // Use the imported About component
       },
       {
         path: 'produk', // Define the route path for the About page
