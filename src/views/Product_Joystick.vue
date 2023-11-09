@@ -1,5 +1,4 @@
 <template>
-  <v-app>
     <navbar />
     <v-main>
       <v-container>
@@ -18,9 +17,6 @@
       </v-container>
       <footerSection />
     </v-main>
-
-
-  </v-app>
 </template>
 
 <script setup>

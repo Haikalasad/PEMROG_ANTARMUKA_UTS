@@ -6,7 +6,7 @@
     <v-app>
       <v-container>
         <v-row>
-          <v-col v-for="(product, index) in products" :key="product.id" cols="12" sm="6" md="4">
+          <v-col v-for="(product, index) in product" :key="product.id" cols="12" sm="6" md="4">
             <v-card class="product-card">
               <!-- Impor gambar langsung -->
               <v-img class="img" :src="product.foto" aspect-ratio="2/3"></v-img>
@@ -34,67 +34,12 @@
 
 
 <script>
-import Mouse1 from "@/assets/Mouse1.jpg";
-import Mouse2 from "@/assets/Mouse2.jpg";
-import Keyboard1 from "@/assets/Keyboard2.jpg";
-import Headphone1 from "@/assets/headphone3.jpg";
-import Headphone2 from "@/assets/headphone1.jpg";
-import Joystick1 from "@/assets/joystik3.jpg";
+import product from "@/data/data.js"
 
 export default {
   data() {
     return {
-      products: [
-        {
-          id: 1,
-          nama: "Logitech G203 ",
-          harga: 300000,
-          stok: 30,
-          foto: Mouse1,
-          terjual: 12
-        },
-        {
-          id: 2,
-          nama: "Razor DeathHadder",
-          harga: 250000,
-          stok: 40,
-          foto: Mouse2,
-          terjual: 20
-        },
-        {
-          id: 3,
-          nama: "Keyboard 75%",
-          harga: 50000,
-          stok: 50,
-          foto: Keyboard1,
-          terjual: 50
-        },
-        {
-          id: 4,
-          nama: "Steel Series Artic 9",
-          harga: 500000,
-          stok: 20,
-          foto: Headphone1,
-          terjual: 30
-        },
-        {
-          id: 5,
-          nama: "Logitech G993s",
-          harga: 500000,
-          stok: 20,
-          foto: Headphone2,
-          terjual: 30
-        },
-        {
-          id: 6,
-          nama: "Gullkit Kingkong 2 Pro",
-          harga: 450000,
-          stok: 20,
-          foto: Joystick1,
-          terjual: 30
-        }
-        // Anda dapat menambahkan produk lainnya di sini
-      ],
+      product: product,
     };
   },
 };
@@ -107,10 +52,6 @@ h2{
   border-bottom: 2px solid #000;
   margin-bottom: 40px;
 }
-.container {
-  margin-top: 35px;
-}
-
 .addToCart{
   display: flex;
   width: 100%;
@@ -127,14 +68,12 @@ h2{
 }
 .product-card {
   width: 100%;
-  max-width: 300px; /* Sesuaikan lebar maksimum sesuai kebutuhan Anda */
-  margin: 10px; /* Sesuaikan margin sesuai kebutuhan Anda */
+  max-width: 300px; 
+  margin: 10px; 
 }
-
 .img {
   width: 100%;
-  max-height: 200px; /* Sesuaikan tinggi maksimum sesuai kebutuhan Anda */
-  /* Memastikan gambar mempertahankan proporsi aspek */
+  max-height: 200px; 
 }
 
 </style>
