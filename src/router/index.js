@@ -6,6 +6,8 @@ import KeyboardPage from '@/views/Product_Keyboard.vue';
 import HeadphonePage from '@/views/Product_Headphone.vue';
 import JoystickPage from '@/views/Product_Joystick.vue';
 import home from '@/views/Home.vue'
+import search from '@/views/Search.vue'
+
 
 const routes = [
   {
@@ -46,6 +48,11 @@ const routes = [
         path: 'produk/joystick', // Define the route path for the About page
         name: ' Joystick',
         component: JoystickPage, // Use the imported About component
+      },
+      {
+        path: '/search', // Define the route path for the About page
+        name: 'Search',
+        component: search, // Use the imported About component
       },
     ],
   },

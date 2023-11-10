@@ -42,9 +42,9 @@ height: 453px;
   text-decoration: none;
   color: white;
   text-align: center;
-  width: 250px; /* Misalnya, lebar 250px */
-  padding: 4px; /* Misalnya, padding 15px atas/bawah dan 20px kiri/kanan */
-  font-size: 24px; /* Misalnya, ukuran font 24px */
+  width: 250px;
+  padding: 4px; 
+  font-size: 24px; 
   margin-top: 25px;
 }
 

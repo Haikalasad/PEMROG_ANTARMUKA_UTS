@@ -15,6 +15,7 @@
     <v-spacer></v-spacer>
 
     <v-text-field
+      v-model="searchQuery"
       v-slot:prepend
       prepend-inner-icon="mdi-magnify"
       label="Search products"
@@ -22,9 +23,31 @@
       single-line
       hide-details
       flat
+      @input="searchProducts"
+      @keydown.enter="redirectToSearch"
     ></v-text-field>
   </v-app-bar>
 </template>
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const searchQuery = ref('');
+
+const searchProducts = () => {
+  // Redirect ke halaman pencarian dengan parameter query
+  router.push({ path: '/search', query: { q: searchQuery.value } });
+};
+
+const redirectToSearch = () => {
+  // Redirect ke halaman pencarian saat tombol "Enter" ditekan
+  if (searchQuery.value.trim() !== '') {
+    router.push({ path: '/search', query: { q: searchQuery.value } });
+  }
+};
+</script>
+
 
 <style>
 .title:hover {

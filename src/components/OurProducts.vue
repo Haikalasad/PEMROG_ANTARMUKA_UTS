@@ -8,7 +8,6 @@
         <v-row>
           <v-col v-for="(product, index) in product" :key="product.id" cols="12" sm="6" md="4">
             <v-card class="product-card">
-              <!-- Impor gambar langsung -->
               <v-img class="img" :src="product.foto" aspect-ratio="2/3"></v-img>
               <v-card-title>{{ product.nama }}</v-card-title>
               <v-card-subtitle>Harga: Rp {{ product.harga }}</v-card-subtitle>

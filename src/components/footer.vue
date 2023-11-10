@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+   
         <v-footer
       class="content text-center d-flex flex-column"
     >
@@ -14,7 +14,7 @@
         {{ new Date().getFullYear() }} — <strong>GameWorld</strong>
       </div>
     </v-footer>
-    </div>
+ 
     
   </template>
 
