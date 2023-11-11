@@ -20,26 +20,27 @@
         <div class="WelcomeBackYouAlmostForgotMe">Welcome back, you almost forgot me!</div>
 
         <div class="DonTHaveAnAccountCreateNowSignUp">
-            <span>Don’t have an account? Create now </span>
-            <span>Sign up</span>
+            <span>Don’t have an account? Create now</span>
+            <router-link to="/signup" class="SignUpLink"> Sign up</router-link>
         </div>
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'SignInPage',
     data() {
         return {
-            usernameValue: '', // Inisialisasi data username
-            passwordValue: '' // Inisialisasi data password
+            usernameValue: '', 
+            passwordValue: '' 
         }
     },
     methods: {
         signIn() {
             // Lakukan verifikasi username dan password di sini
             if (this.usernameValue === 'pengguna' && this.passwordValue === 'sandi') {
-                alert('Login berhasil');
+                this.$router.push({ name: 'Home' });
             } else {
                 alert('Login gagal. Periksa username dan password Anda.');
             }
@@ -50,8 +51,8 @@ export default {
 
 <style scoped>
 .SignInPage {
-    width: 1440px;
-    height: 1024px;
+    width: 100%;
+    height: 100vh;
     position: relative;
     background: white;
     display: flex;
@@ -95,7 +96,7 @@ input {
     width: 558px;
     height: 67px;
     left: 817px;
-    top: 720px;
+    top: 550px;
     position: absolute;
     background: #151515;
     border: 1px #B5B5B5 solid;
@@ -109,7 +110,7 @@ input {
     width: 108px;
     height: 28px;
     left: 813px;
-    top: 512px;
+    top: 400px;
     position: absolute;
     color: black;
     font-size: 20px;
@@ -138,7 +139,7 @@ input {
 .HelloBoss {
     width: 248px;
     left: 994px;
-    top: 198px;
+    top: 100px;
     position: absolute;
     color: #151515;
     font-size: 48px;
@@ -149,7 +150,7 @@ input {
 .WelcomeBackYouAlmostForgotMe {
     width: 378px;
     left: 929px;
-    top: 270px;
+    top: 170px;
     position: absolute;
     text-align: center;
     color: #0B0B0B;
@@ -161,7 +162,7 @@ input {
 .DonTHaveAnAccountCreateNowSignUp {
     width: 378px;
     left: 907px;
-    top: 808px;
+    top: 650px;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -172,7 +173,7 @@ input {
     width: 108px;
     height: 28px;
     left: 813px;
-    top: 377px;
+    top: 300px;
     position: absolute;
     color: black;
     font-size: 20px;
@@ -182,10 +183,18 @@ input {
 
 .SignIn {
     left: 1057px;
-    top: 736px;
+    top: 600px;
     position: absolute;
     color: white;
     font-size: 24px;
     font-family: 'Poppins';
     font-weight: 500;
-}</style>
+}
+
+.SignUpLink {
+    color: #007BFF;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 5px;
+}
+</style>
