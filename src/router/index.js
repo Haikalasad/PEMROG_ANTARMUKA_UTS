@@ -9,6 +9,7 @@ import home from '@/views/Home.vue'
 import search from '@/views/Search.vue'
 
 
+
 const routes = [
   {
     path: '/',
@@ -16,6 +17,11 @@ const routes = [
     children: [
       {
         path: '',
+        name: 'SignIp',
+        component: () => import('@/views/SignIn.vue'),
+      },
+      {
+        path: 'signup',
         name: 'SignUp',
         component: () => import('@/views/SignUp.vue'),
       },
