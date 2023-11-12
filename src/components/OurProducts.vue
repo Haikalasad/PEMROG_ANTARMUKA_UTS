@@ -18,7 +18,6 @@
                   Tambah ke Keranjang
                 </v-btn>
               </div>
-              <!-- Tambahkan tombol Edit, Copy, Delete di sini sesuai kebutuhan Anda -->
             </v-card>
           </v-col>
         </v-row>

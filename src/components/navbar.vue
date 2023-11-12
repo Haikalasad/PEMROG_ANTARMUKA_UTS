@@ -24,7 +24,6 @@
       hide-details
       flat
       @input="searchProducts"
-      @keydown.enter="redirectToSearch"
     ></v-text-field>
   </v-app-bar>
 </template>
@@ -40,12 +39,7 @@ const searchProducts = () => {
   router.push({ path: '/search', query: { q: searchQuery.value } });
 };
 
-const redirectToSearch = () => {
-  // Redirect ke halaman pencarian saat tombol "Enter" ditekan
-  if (searchQuery.value.trim() !== '') {
-    router.push({ path: '/search', query: { q: searchQuery.value } });
-  }
-};
+
 </script>
 
 

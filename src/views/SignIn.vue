@@ -1,191 +1,124 @@
 <template>
-    <div class="SignInPage">
-        <img class="Unsplash8gdayy2lhi0" src="https://via.placeholder.com/1920x1280" />
-
-        <div class="Username">
-            <label for="username" class="InputLabel">Username</label>
-            <input type="text" id="username" v-model="usernameValue" placeholder="Enter your username">
-        </div>
-
-        <div class="Password">
-            <label for="password" class="InputLabel">Password</label>
-            <input type="password" id="password" v-model="passwordValue" placeholder="Enter your password">
-        </div>
-
-        <button @click="signIn" class="SignInButton">Sign In</button>
-
-        <img class="Rectangle1" src="@/assets/Rectangle 1.jpg" />
-
-        <div class="HelloBoss">Hello Boss</div>
-        <div class="WelcomeBackYouAlmostForgotMe">Welcome back, you almost forgot me!</div>
-
-        <div class="DonTHaveAnAccountCreateNowSignUp">
+    <div class="container">
+      <div class="glassmorphism-card">
+        <!-- Login Section -->
+        <div class="login-section">
+          <h2 class="LoginHeader">Sign In</h2> 
+          <form @submit.prevent="signIn">
+            <!-- Username Input -->
+            <label for="username">Username:</label>
+            <input v-model="usernameValue" type="text" placeholder="Choose a username" />
+  
+            <!-- Password Input -->
+            <label for="password">Password:</label>
+            <input v-model="passwordValue" type="password" placeholder="Choose a password" />
+  
+            <!-- Sign In Button -->
+            <button type="submit" class="SignInButton">Sign In</button>
+          </form>
+  
+          <!-- Don't Have an Account? Sign Up Link -->
+          <div class="DonTHaveAnAccountCreateNowSignUp">
             <span>Don’t have an account? Create now </span>
-            <span>Sign up</span>
+            <router-link to="/signup" class="SignUpLink"> Sign up</router-link>
+          </div>
         </div>
+      </div>
     </div>
-</template>
-
-<script>
-export default {
+  </template>
+  
+  <script>
+  export default {
     name: 'SignInPage',
     data() {
-        return {
-            usernameValue: '', // Inisialisasi data username
-            passwordValue: '' // Inisialisasi data password
-        }
+      return {
+        usernameValue: '',
+        passwordValue: '',
+      };
     },
     methods: {
-        signIn() {
-            // Lakukan verifikasi username dan password di sini
-            if (this.usernameValue === 'pengguna' && this.passwordValue === 'sandi') {
-                alert('Login berhasil');
-            } else {
-                alert('Login gagal. Periksa username dan password Anda.');
-            }
-        },
+      signIn() {
+        // Verifikasi username dan password
+        if (this.usernameValue === 'pengguna' && this.passwordValue === 'sandi') {
+          this.$router.push({ name: 'Home' });
+        } else {
+          alert('Login failed. Check your username and password.');
+        }
+      },
     },
-};
-</script>
-
-<style scoped>
-.SignInPage {
-    width: 1440px;
-    height: 1024px;
-    position: relative;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  };
+  </script>
+  
+  <style scoped>
+.container {
+  position: relative;
+  margin-top: 0;
+  height: 100vh;
+  width: 100%;
+  background-image: url('@/assets/logo3.png');
+  background-size: cover;
+  background-position: center;
 }
 
-body {
-    overflow: hidden;
+.glassmorphism-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(10px);
+  background: rgba(249, 249, 249, 0.9); 
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.login-section {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+.LoginHeader {
+  font-size: 24px;
+  color: #333; 
+  margin-bottom: 20px;
 }
 
 input {
-    width: 558px;
-    height: 52px;
-    flex-shrink: 0;
-    border: 1px solid #B5B5B5;
-    padding: 5px 20px;
-    background: rgba(217, 217, 217, 0.00);
-    font-size: 24px;
-}
-
-.Unsplash8gdayy2lhi0 {
-    width: 1920px;
-    height: 1279.87px;
-    position: absolute;
-    left: 107px;
-    top: -1409px;
-}
-
-.Username {
-    width: 558px;
-    height: 52px;
-    left: 817px;
-    top: 426px;
-    position: absolute;
-    background: transparent;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .SignInButton {
-    width: 558px;
-    height: 67px;
-    left: 817px;
-    top: 720px;
-    position: absolute;
-    background: #151515;
-    border: 1px #B5B5B5 solid;
-    color: white;
-    font-size: 24px;
-    font-family: 'Poppins';
-    font-weight: 500;
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
-
-.Password {
-    width: 108px;
-    height: 28px;
-    left: 813px;
-    top: 512px;
-    position: absolute;
-    color: black;
-    font-size: 20px;
-    font-family: 'Poppins';
-    font-weight: 400;
-}
-
-.Rectangle3 {
-    width: 558px;
-    height: 52px;
-    left: 817px;
-    top: 561px;
-    position: absolute;
-    background: transparent;
-    border: 1px #B5B5B5 solid;
-}
-
-.Rectangle1 {
-    width: 720px;
-    height: 1024px;
-    left: 0;
-    top: 0;
-    position: absolute;
-}
-
-.HelloBoss {
-    width: 248px;
-    left: 994px;
-    top: 198px;
-    position: absolute;
-    color: #151515;
-    font-size: 48px;
-    font-family: 'Poppins';
-    font-weight: 500;
-}
-
-.WelcomeBackYouAlmostForgotMe {
-    width: 378px;
-    left: 929px;
-    top: 270px;
-    position: absolute;
-    text-align: center;
-    color: #0B0B0B;
-    font-size: 20px;
-    font-family: 'Poppins';
-    font-weight: 400;
-}
-
-.DonTHaveAnAccountCreateNowSignUp {
-    width: 378px;
-    left: 907px;
-    top: 808px;
-    position: absolute;
+ 
+  .DonTHaveAnAccountCreateNowSignUp {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.Username {
-    width: 108px;
-    height: 28px;
-    left: 813px;
-    top: 377px;
-    position: absolute;
-    color: black;
-    font-size: 20px;
-    font-family: 'Poppins';
-    font-weight: 400;
-}
-
-.SignIn {
-    left: 1057px;
-    top: 736px;
-    position: absolute;
-    color: white;
-    font-size: 24px;
-    font-family: 'Poppins';
-    font-weight: 500;
-}</style>
+  }
+  
+  .SignUpLink {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  </style>
+  

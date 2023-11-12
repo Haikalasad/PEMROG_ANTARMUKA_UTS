@@ -19,7 +19,7 @@
   display: flex;
   justify-content: center; /* Menggeser ke tengah secara horizontal */
   align-items: center; /* Menggeser ke tengah secara vertikal */
-  width: 1250px;
+  width: 100%;
 height: 453px;
   
   

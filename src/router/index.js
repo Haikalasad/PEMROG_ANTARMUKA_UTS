@@ -17,7 +17,7 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'SignIp',
+        name: 'SignIn',
         component: () => import('@/views/SignIn.vue'),
       },
       {

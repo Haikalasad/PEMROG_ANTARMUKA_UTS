@@ -1,161 +1,126 @@
 <template>
-<div class="container">
-  <div class="logo">
-    <img src="../assets/logo3.jpg" alt="logo">
-  </div>
-  <div class="sidebar">
-    <div class="judul">
-        <h1 class="judul-text">It looks like we got a new member here!!</h1>
+    <div class="container">
+      <div class="glassmorphism-card">
+        <!-- Sign Up Section -->
+        <div class="signup-section">
+          <h2 class="SignUpHeader">Sign Up</h2>
+          <form @submit.prevent="signUp">
+            <!-- Email Input -->
+            <label for="email">Email:</label>
+            <input v-model="emailValue" type="email" placeholder="Enter your email" />
+  
+            <!-- Username Input -->
+            <label for="username">Username:</label>
+            <input v-model="usernameValue" type="text" placeholder="Choose a username" />
+  
+            <!-- Password Input -->
+            <label for="password">Password:</label>
+            <input v-model="passwordValue" type="password" placeholder="Choose a password" />
+  
+            <!-- Sign Up Button -->
+            <button type="submit" class="SignUpButton">Sign Up</button>
+          </form>
+  
+          <!-- Already Have an Account? Sign In Link -->
+          <div class="HaveAnAccountSignInLink">
+            <span>Already have an account? </span>
+            <router-link to="/" class="SignInLink">Sign in</router-link>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="title">
-        <div class="title-text">You are kindly requested to fill in the form below</div>
-    </div>
-    <div class="email">
-        <div class="email-label">Email *</div>
-        <div class="eml">
-            <input type="text" placeholder="" />
-        </div>
-        <div class="username">
-            <div class="username-label">Username *</div>
-            <div class="usn">
-                <input type="text" placeholder="" />
-            </div>
-            <div class="password">
-                <div class="password-label">Password *</div>
-            </div>
-        </div>
-        <div class="psw">
-            <input type="password" placeholder="" />
-        </div>
-        <div class="signup">
-            <router-link to="/home" class="link">Sign Up</router-link>
-        </div>
-        </div>
-        <div class="signin">
-            <button>Already have an account? Sign in now Sign in</button>
-        </div>
-
-  </div>
-   
-
-</div>
-    
-</template>
-<script>
-
-</script>
-
-<style>
-.logo {
-    width:50%;
-    height: 100%;
-    left: 0px;
-    top: 1px;
+  </template>
+  
+  <script>
+  export default {
+    name: 'SignUpPage',
+    data() {
+      return {
+        emailValue: '',
+        usernameValue: '',
+        passwordValue: '',
+      };
+    },
+    methods: {
+      signUp() {
+       
+      
+      },
+    },
+  };
+  </script>
+  
+  <style scoped>
+  .container {
+    position: relative;
+    margin-top: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: url('@/assets/logo3.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .glassmorphism-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(10px);
+  background: rgba(249, 249, 249, 0.8); 
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
 }
-
-.judul-text {
-    position: absolute;
-    width: 798px;
-    height: 256px;
-    left: 786px;
-    top: 70px;
-    font-size: 60px;
-}
-
-.title-text {
-    position: absolute;
-    width: 511px;
-    height: 30px;
-    left: 786px;
-    top: 260px;
-    color: #797979;
-
-
-}
-
-.email-label {
-    position: absolute;
-    width: 108px;
-    height: 28px;
-    left: 786px;
-    top: 317px;
-}
-
-.eml input {
-    box-sizing: border-box;
-    position: absolute;
-    width: 605px;
-    height: 52px;
-    left: 790px;
-    top: 356px;
-    border: 1px solid #B5B5B5;
-}
-
-.username-label {
-    position: absolute;
-    width: 120px;
-    height: 28px;
-    left: 786px;
-    top: 446px;
-}
-
-.usn input {
-    box-sizing: border-box;
-    position: absolute;
-    width: 605px;
-    height: 52px;
-    left: 790px;
-    top: 490px;
-    border: 1px solid #B5B5B5;
-}
-
-.password-label {
-    position: absolute;
-    width: 120px;
-    height: 28px;
-    left: 786px;
-    top: 580px;
-}
-
-.psw input {
-    box-sizing: border-box;
-    position: absolute;
-    width: 605px;
-    height: 52px;
-    left: 790px;
-    top: 626px;
-    border: 1px solid #B5B5B5;
-}
-
-.signup {
-    box-sizing: border-box;
-    position: absolute;
-    width: 558px;
-    height: 67px;
-    left: 814px;
-    top: 754px;
-    background: #151515;
-    color: white;
-    border: 1px solid #B5B5B5;
-    text-align: center;
-    text-decoration: none
-
-}
-.link{
-    color: white;
-    text-decoration: none;
-    position: absolute;
+  
+  .signup-section {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .SignUpHeader {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .SignUpButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .HaveAnAccountSignInLink {
+    margin-top: 20px;
+    display: flex;
     justify-content: center;
-    top: 20px;
-    left: 250px;
-}
-
-.signin button {
-    position: absolute;
-    width: 378px;
-    height: 24px;
-    left: 904px;
-    top: 842px;
-
-}
-</style>
+    align-items: center;
+  }
+  
+  .SignInLink {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  </style>
+  

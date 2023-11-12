@@ -1,9 +1,9 @@
 <template>
-    <v-app>
+
         <v-main>
             <SignUp/>
         </v-main>
-    </v-app>
+  
 </template>
 
 <script setup>
