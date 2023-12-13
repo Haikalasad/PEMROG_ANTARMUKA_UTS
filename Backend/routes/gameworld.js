@@ -3,6 +3,7 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const connection = require('../config/database');
 
+
 router.post('/login', [
     body('email').notEmpty(),
     body('password').notEmpty(),
@@ -111,8 +112,11 @@ router.get('/keranjang/:userId', function (req, res) {
     const userId = req.params.userId;
 
     const keranjangQuery = `
-        SELECT * FROM keranjang
-        WHERE idUser = ?;
+    SELECT keranjang.*, produk.namaProduk, produk.harga, produk.stok, produk.foto, produk.terjual
+    FROM keranjang
+    JOIN produk ON keranjang.idProduk = produk.id
+    WHERE keranjang.idUser = ?;
+    
     `;
 
     connection.query(keranjangQuery, [userId], function (err, rows) {
@@ -131,6 +135,7 @@ router.get('/keranjang/:userId', function (req, res) {
         });
     });
 });
+
 
 router.post('/keranjang/store', [
     body('idUser').notEmpty(),
@@ -160,37 +165,51 @@ router.post('/keranjang/store', [
                 message: 'Error checking data in the database',
             });
         }
-
-        // Jika produk sudah ada di keranjang, kirim respons
         if (rows.length > 0) {
-            return res.status(400).json({
-                status: false,
-                message: 'Produk sudah ada di keranjang',
+            // Update existing item in the cart
+            const updateQuery = `
+                UPDATE keranjang 
+                SET Jumlah = Jumlah + ?, Total = (Jumlah + ?) * (SELECT harga FROM produk WHERE id = ?)
+                WHERE idUser = ? AND idProduk = ?
+            `;
+        
+            connection.query(updateQuery, [Jumlah, Jumlah, idProduk, idUser, idProduk], function (err) {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({
+                        status: false,
+                        message: 'Error updating data in the database',
+                    });
+                }
+        
+                return res.status(200).json({
+                    status: true,
+                    message: 'Produk berhasil diperbarui di keranjang',
+                });
+            });
+        }else {
+            // Insert new item into the cart
+            const insertQuery = `
+                INSERT INTO keranjang (idUser, idProduk, Jumlah, Total)
+                SELECT ?, ?, ?, ? * produk.harga AS Total
+                FROM produk
+                WHERE produk.id = ?;
+            `;
+            connection.query(insertQuery, [idUser, idProduk, Jumlah, Jumlah, idProduk], function (err) {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({
+                        status: false,
+                        message: 'Error adding data to the database',
+                    });
+                }
+
+                return res.status(200).json({
+                    status: true,
+                    message: 'Produk berhasil ditambahkan ke keranjang',
+                });
             });
         }
-
-        // Jika produk belum ada di keranjang, tambahkan
-        const insertQuery = `
-            INSERT INTO keranjang (idUser, idProduk, Jumlah, Total)
-            SELECT ?, ?, ?, (? * hargaProduk) AS Total
-            FROM produk
-            WHERE idProduk = ?;
-        `;
-
-        connection.query(insertQuery, [idUser, idProduk, Jumlah, Jumlah, idProduk], function (err) {
-            if (err) {
-                console.error(err);
-                return res.status(500).json({
-                    status: false,
-                    message: 'Error adding data to the database',
-                });
-            }
-
-            return res.status(200).json({
-                status: true,
-                message: 'Produk berhasil ditambahkan ke keranjang',
-            });
-        });
     });
 });
 
